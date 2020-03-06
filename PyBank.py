@@ -67,7 +67,7 @@ print(f'Average Change: ${average:.2f}')
 print(f'Greatest Increase in Profits: {profit_increase_month} (${profit_increase})')
 print(f'Greatest Decrease in Profits: {profit_decrease_month} (${profit_decrease})')
 
-output_path = os.path.join("output.text")
+output_path = os.path.join("PyBankOutput.text")
 with open(output_path, 'w', newline='') as csvwriter:
 
     # Initialize csv.writer

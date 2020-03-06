@@ -45,3 +45,24 @@ with open("Py_Poll_data.csv") as csv_file:
     print(f'Winner: {max_key}')
     print(f'-----------------------')
 
+
+output_path = os.path.join("PyPollOutput.text")
+with open(output_path, 'w', newline='') as csvwriter:
+
+    csvwriter.write(f'Election Results\n')
+    csvwriter.write(f'-----------------------\n')
+    csvwriter.write(f'Total Votes: {vote_cast}\n')
+    csvwriter.write(f'-----------------------\n')
+
+    for can in candidate_dict.items():
+        name = can[0]
+        percentage = can[1]/vote_cast*100
+
+        csvwriter.write(f'{name}: {percentage:.3f}% ({can[1]})\n')
+
+    csvwriter.write(f'-----------------------\n')
+    
+    max_key = max(candidate_dict, key=candidate_dict.get)
+    csvwriter.write(f'Winner: {max_key}\n')
+    csvwriter.write(f'-----------------------\n')
+
